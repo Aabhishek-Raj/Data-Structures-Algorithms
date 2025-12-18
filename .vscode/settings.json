@@ -1,0 +1,5 @@
+{
+    "code-runner.executorMap": {
+        "java": "cd $dir && javac -d ./build $fileName && java -cp ./build $fileNameWithoutExt"
+    }
+}

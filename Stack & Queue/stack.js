@@ -58,7 +58,7 @@ class Stack {
             this.top = node
         }
         node.next = this.top
-        this.top = node   
+        this.top = node
     }
 
     pop(){
@@ -80,7 +80,7 @@ class Queue {
     dequeue(va){
         const node = new Node()
         if(!this.frond){
-
+            
         }
     }
 }

@@ -141,7 +141,7 @@ class BinarySearchTree {
 
 
 const bst = new BinarySearchTree()
-console.log('tree is empty?' + bst.isEmpty())
+console.log('tree is empty?: ' + bst.isEmpty())
 
 bst.insert(10)
 bst.insert(39)

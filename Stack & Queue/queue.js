@@ -2,10 +2,10 @@ class Queue {
     constructor(){
         this.items = []
     }
-    pop(val){
+    enqueue(val){
         this.items.push(val)
     }
-    pop(){
+    dequeue(){
         this.items.shift()
     }
 }
@@ -36,6 +36,6 @@ const o = new ObjQ
 o.enqueue(34)
 o.enqueue(94)
 o.enqueue(59)
-o.dequeue()
+// o.dequeue()
 
 o.print()
