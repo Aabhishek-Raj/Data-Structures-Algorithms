@@ -1,5 +1,7 @@
 import javax.print.attribute.standard.Finishings;
 
+// 34. Find First and Last Position of Element in Sorted Array
+
 public class FirstAndLastPosition {
     public static void main(String[] args) {
         int[] array = { 1, 3, 4, 4, 4, 6, 7 };
@@ -51,4 +53,6 @@ public class FirstAndLastPosition {
         }
         return ans;
     }
+
+    
 }

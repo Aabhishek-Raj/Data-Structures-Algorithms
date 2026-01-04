@@ -122,5 +122,13 @@ queue.print()
 
 
 function binarySearch(){
-    let first
+    let start = arr[0]
+    let end = arr[arr.length - 1]
+
+    while(start !== end) {
+        const center = start - end / 2
+    }
+
 }
+
+const array = [2, 4, 5, 8, 9, 10, 17]

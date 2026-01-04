@@ -1,16 +1,17 @@
 public class InfiniteArray {
+    // Find a position of an element in a sorted array of Infinite numbers =>
     public static void main(String[] args) {
 
         int[] arr = { 3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170 };
-        int target = 130;
+        int target = 131;
 
         System.out.println(ans(arr, target));
-        
+        System.out.println(binarySearch(arr, target));
     }
 
     static int ans(int[] arr, int target) {
-        //first find the range 
-        //lets first start with box size two    
+        //first find the range
+        //lets first start with box size two
         int start = 0;
         int end = 1;
 
@@ -18,12 +19,11 @@ public class InfiniteArray {
         while(target > arr[end]) {
             int newStart = end + 1;
 
-            //double the box value
-            //end = previous end + size of box * 2
+            // double the box value
+            // end = previous end + size of box * 2
             end = end + (end - start + 1) * 2;
             start = newStart;
         }
-
         return binarySearch(arr, target, start, end);
     }
 
@@ -42,6 +42,26 @@ public class InfiniteArray {
             }
         }
         return -1;
-    } 
+    }
+
+    // {2, 2, 3, 2, 3, 6}
+    static int binarySearch(int[] arr, int target) {
+
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int center = start + (end - start) / 2;
+
+            if(arr[center] < target) {
+                start = center + 1;
+            } else if (arr[center] > target) {
+                end = center - 1;
+            } else {
+                return center;
+            }
+        }
+        return start;
+    }
 }
 

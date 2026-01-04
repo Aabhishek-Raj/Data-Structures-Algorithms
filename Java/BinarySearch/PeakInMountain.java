@@ -7,6 +7,8 @@ public class PeakInMountain {
 
     }
 
+    //852 Peak index in mountain array =>
+
     static int peakIndexInMountainArray(int[] arr) {
 
         int start = 0;
@@ -27,5 +29,20 @@ public class PeakInMountain {
             }
         }
         return start; // or end, as both are equal
+    }
+
+    // 0, 1, 0
+    static int peakIndexInMountainArray2(int[] array) {
+        int start = 0;
+        int end = array.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if(start < mid) {
+                
+            }
+        }
+
+        return -1;
     }
 }

@@ -33,5 +33,5 @@ const graph: {[key: string]: string[]} = {
     f: []
 }
 
-// depthFirstSearch(graph, 'a')
+depthFirstSearch(graph, 'a')
 // dFSRecursion(graph, 'a')

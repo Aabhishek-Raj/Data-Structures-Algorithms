@@ -1,4 +1,4 @@
-class Graph {
+export class Graph {
 
     adjacencyList: {[key: string]: string[]}
 
@@ -53,3 +53,13 @@ class Graph {
         }
     }
 }
+
+
+const graph = new Graph()
+
+graph.addVertex("A")
+graph.addVertex("B")
+graph.addVertex("C")
+graph.addEdge('A', 'C')
+console.log(graph)
+graph.display()
