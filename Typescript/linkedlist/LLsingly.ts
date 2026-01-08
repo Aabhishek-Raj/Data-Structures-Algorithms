@@ -1,4 +1,4 @@
-class ListNode<T> {
+export class ListNode<T> {
     public value: T
     public next: ListNode<T> | null
 
@@ -8,7 +8,7 @@ class ListNode<T> {
     }
 }
 
-class LinkedList<T> {
+export class LinkedList<T> {
     private head: ListNode<T> | null
     private tail: ListNode<T> | null
     private size: number
@@ -63,6 +63,25 @@ class LinkedList<T> {
         }
 
         this.size++
+    }
+
+    insertAtIndexWithRecursion(value: T, index: number) {
+        this.head = this.insertWithRecur(this.head, value, index)
+        return
+        
+    }
+    private insertWithRecur(node: ListNode<T> | null, value: T, index: number) {
+        if(index === 0) {
+            const newNode = new ListNode(value)
+            newNode.next = node
+            this.size++
+            return newNode
+        }
+         if (node === null) {
+            throw new Error("Index out of bounds");
+        }
+        node.next = this.insertWithRecur(node.next, value, index - 1)
+        return node
     }
 
     removeHead() {
@@ -128,14 +147,21 @@ class LinkedList<T> {
         this.tail = this.head
         this.head = prev
     }
+
+    getHead(): ListNode<T> | null {
+        return this.head
+    }
 }
 
 const list = new LinkedList<string>()
-list.insertAtFirst("A")
+list.insertAtFirst("C")
 list.insertAtFirst("B")
-list.insertAtLast("Z")
+list.insertAtFirst('A')
+list.insertAtLast("D")
 // list.insertAtIndex('JK', 1)
 // console.log(list.removeHead())
-list.reverseList()
-console.log(list)
-list.printList()
+// list.reverseList()
+
+// A -> B -> C -> o -> D
+list.insertAtIndexWithRecursion('o', 3)
+// list.printList()

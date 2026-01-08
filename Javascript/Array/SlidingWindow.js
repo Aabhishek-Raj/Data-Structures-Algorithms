@@ -61,6 +61,26 @@ function longestUniqueSubstringBruteForce() {
     return maxCount
 }
 
+function longestUniqueSubstring2() {
+    const strg = "bacabcb"
+    let max = 0
+    let pointer = 0
+    const window = new set()
+
+    while (i < strg.length) {
+        if(!window.has(strg[i])) {
+            window.add(strg[i])
+            Math.max(max, i - pointer + 1)
+            i++
+        } else {
+            window.delete(strg[pointer])
+            pointer++
+        }
+    }
+    return max
+
+}
+
 function longestUniqueSubstring() {
     const strg = "bacabcb"
     let maxWindowSize = 0;
