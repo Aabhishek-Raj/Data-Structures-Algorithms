@@ -64,21 +64,21 @@ export class Graph<T> {
         const visited = new Set<T>()
         const stack: T[] = [start]
 
-        while(stack.length > 0) {
+        while (stack.length > 0) {
             const node = stack.pop()!
 
-            if(!visited.has(node)) {
-                visited.add(start)
-                console.log(start)
+            if (visited.has(node)) continue
+
+            visited.add(node)
+            console.log(node)
+
+            for (const neighbour of this.adjList.get(node) || []) {
+                if (!visited.has(neighbour)) {
+                    stack.push(neighbour)
+                }
             }
         }
-
-        for(const neighbour of this.adjList.get(start) || []) {
-            stack.push(neighbour)
-        }
-
     }
-
 }
 
 

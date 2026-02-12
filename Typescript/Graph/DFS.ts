@@ -1,28 +1,40 @@
-const depthFirstSearch = (graph: {[key: string]: string[]}, root: string): void => {
-    const stack: string[] = []
-    stack.push(root)
+const depthFirstSearch = (
+  graph: { [key: string]: string[] },
+  root: string
+): void => {
+  const stack: string[] = [root]
+  const visited = new Set<string>()
 
-    while(stack.length > 0) {
-        const current = stack.pop()
-        if( current === undefined) {
-            return 
-        }
+  while (stack.length > 0) {
+    const current = stack.pop()!
 
-        console.log(current)
+    if (visited.has(current)) continue
+    visited.add(current)
 
-        for (let neighbor of graph[current]) {
-            stack.push(neighbor)
-        }
+    console.log(current)
 
+    for (const neighbor of graph[current]) {
+      stack.push(neighbor)
     }
+  }
 }
 
-const dFSRecursion = (graph: {[key: string]: string[]}, root: string): void => {
-    console.log(root)
-    for (let neighbor of graph[root]) {
-        dFSRecursion(graph, neighbor)
-    }
+
+const dfsRecursive = (
+  graph: { [key: string]: string[] },
+  node: string,
+  visited = new Set<string>()
+): void => {
+  if (visited.has(node)) return
+
+  visited.add(node)
+  console.log(node)
+
+  for (const neighbor of graph[node]) {
+    dfsRecursive(graph, neighbor, visited)
+  }
 }
+
 
 const graph: {[key: string]: string[]} = {
     a: ['c', 'b'],
